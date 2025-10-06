@@ -1,0 +1,124 @@
+/* Benefits Section */
+.benefits-section {
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+  position: relative;
+}
+
+.benefits-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Benefits Content */
+.benefits-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.benefits-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.benefits-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #1B1B1B;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.benefits-title-highlight {
+  color: #4BA742;
+}
+
+.benefits-description {
+  font-size: 1.1rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.benefits-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+/* Benefits Stats */
+.benefits-stats {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.stats-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 1023px) {
+  .benefits-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .benefits-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .benefits-section {
+    padding: 3rem 0;
+  }
+  
+  .benefits-container {
+    padding: 0 0.75rem;
+  }
+  
+  .benefits-content {
+    margin-bottom: 3rem;
+  }
+  
+  .benefits-title {
+    font-size: 1.75rem;
+  }
+  
+  .benefits-description {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .benefits-image img {
+    transition: none;
+  }
+}
+
+/* High DPI Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .benefits-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

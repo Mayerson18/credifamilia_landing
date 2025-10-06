@@ -1,0 +1,332 @@
+/* Header Container - Responsive Heights */
+header {
+  background-color: var(--color-primary-green);
+  box-shadow: var(--shadow-md);
+  height: var(--header-height-mobile);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: height var(--transition-fast);
+}
+
+/* Tablet Header */
+@media (min-width: 768px) {
+  header {
+    height: var(--header-height-tablet);
+  }
+}
+
+/* Desktop Header */
+@media (min-width: 1024px) {
+  header {
+    height: var(--header-height-desktop);
+  }
+}
+
+/* Header Navigation */
+.header-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0.75rem;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .header-nav {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-nav {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-nav {
+    padding: 0 2rem;
+  }
+}
+
+/* Logo Container - Precise positioning */
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 0.5rem 0;
+}
+
+/* Logo Image - Responsive Exact Sizes */
+.logo-container img {
+  height: var(--logo-height-mobile);
+  width: auto;
+  object-fit: contain;
+  transition: height var(--transition-fast);
+  display: block;
+  /* Remove background and border radius */
+  background: transparent;
+  border-radius: 0;
+}
+
+/* Mobile Large (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .logo-container img {
+    height: var(--logo-height-mobile-lg);
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .logo-container img {
+    height: var(--logo-height-tablet);
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .logo-container img {
+    height: var(--logo-height-desktop);
+  }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .logo-container img {
+    height: var(--logo-height-desktop-lg);
+  }
+}
+
+/* Navigation Links */
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+  margin-left: auto; /* Push navigation to the right */
+  margin-right: 1rem; /* Space between navigation and CTA button */
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-links {
+    gap: 2.5rem;
+    margin-right: 2rem;
+  }
+}
+
+.nav-link {
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 1024px) {
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+.nav-link:hover {
+  color: var(--color-secondary-yellow);
+}
+
+/* CTA Button - Responsive sizing */
+.cta-button {
+  background-color: var(--color-secondary-yellow);
+  color: var(--color-black);
+  padding: 0.4rem 1rem;
+  border-radius: var(--border-radius-lg);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-secondary-yellow-border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .cta-button {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.cta-button:hover {
+  background-color: var(--color-secondary-yellow-hover);
+  border-color: var(--color-secondary-yellow-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+.mobile-menu-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (min-width: 481px) {
+  .mobile-menu-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  background-color: var(--color-primary-green);
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-links {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-links {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mobile-menu-links {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Logo Loading and Error States */
+.logo-container img:not([src]),
+.logo-container img[src=""] {
+  opacity: 0;
+}
+
+/* High DPI Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-container img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Logo Hover Effect - Subtle brand interaction */
+.logo-container {
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.logo-container:hover {
+  transform: scale(1.02);
+}
+
+/* 
+LOGO RESPONSIVE BREAKPOINTS DOCUMENTATION:
+=============================================
+
+Mobile Small (320px - 480px):
+- Header Height: 64px
+- Logo Height: 32px
+- Padding: 0 0.75rem
+- Optimal for: iPhone SE, small Android phones
+
+Mobile Large (481px - 767px):
+- Header Height: 64px  
+- Logo Height: 36px
+- Padding: 0 0.75rem
+- Optimal for: iPhone 12/13/14, larger Android phones
+
+Tablet (768px - 1023px):
+- Header Height: 72px
+- Logo Height: 40px
+- Padding: 0 1rem
+- Optimal for: iPad, Android tablets, small laptops
+
+Desktop (1024px - 1439px):
+- Header Height: 80px
+- Logo Height: 44px
+- Padding: 0 1.5rem
+- Optimal for: Most desktop screens, laptops
+
+Large Desktop (1440px+):
+- Header Height: 80px
+- Logo Height: 48px
+- Padding: 0 2rem
+- Optimal for: Large monitors, 4K displays
+
+HEADER LAYOUT CONSIDERATIONS:
+- Header always spans full width (no max-width constraint)
+- Content uses responsive padding for optimal spacing
+- Logo stays left-aligned, navigation and CTA right-aligned
+- Navigation links positioned to the right with proper spacing from CTA
+- No container max-width to ensure full-width coverage
+
+LOGO ASPECT RATIO CONSIDERATIONS:
+- All sizes maintain aspect ratio automatically (width: auto)
+- Logo should be provided in high resolution (2x or 3x for retina)
+- Recommended logo file: SVG or PNG with transparent background
+- Minimum recommended source size: 144px height (3x largest display size)
+*/

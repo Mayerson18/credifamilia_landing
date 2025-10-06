@@ -1,0 +1,35 @@
+<section class="testimonials-section">
+  <div class="testimonials-container">
+    <h2 class="testimonials-title">Clientes felices</h2>
+    <p class="testimonials-subtitle">Conoce los testimonios de clientes que ya realizaron sus acabados</p>
+    
+    <div class="testimonials-slider">
+      <div class="slider-wrapper" [style.transform]="'translateX(' + currentSlide * -33.333 + '%)'">
+        @for (testimonial of testimonials; track testimonial.id) {
+          <div class="testimonial-card">
+            <div class="card-video">
+              <div class="video-thumbnail">
+                <img [src]="testimonial.thumbnail" [alt]="testimonial.clientName" loading="lazy" decoding="async">
+                <div class="play-button" (click)="playVideo(testimonial.videoId)">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="video-overlay">
+                <div class="testimonial-quote">{{ testimonial.quote }}</div>
+                <div class="client-tag">{{ testimonial.clientName }}</div>
+              </div>
+            </div>
+            
+            <div class="card-info">
+              <h3 class="client-name">{{ testimonial.clientName }}</h3>
+              <p class="client-company">{{ testimonial.company }}</p>
+              <p class="client-location">{{ testimonial.location }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

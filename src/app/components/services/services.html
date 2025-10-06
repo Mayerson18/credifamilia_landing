@@ -1,0 +1,24 @@
+<section id="servicios" class="services-section">
+  <div class="services-container">
+    <h2 class="services-title">
+      Crédito de <span class="services-title-highlight">Acabados</span> de Credifamilia
+    </h2>
+
+    <div class="services-grid">
+      @for (service of services; track service.id) {
+        <div class="service-card">
+          <div class="service-icon">
+            <img [src]="service.image" [alt]="service.title" loading="lazy" decoding="async">
+          </div>
+          <p class="service-description">{{ service.description }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="services-cta">
+      <button class="cta-button" (click)="onCtaClick()">
+        Solicítalo aquí
+      </button>
+    </div>
+  </div>
+</section>

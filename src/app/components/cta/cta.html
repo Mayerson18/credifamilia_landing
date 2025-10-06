@@ -1,0 +1,205 @@
+<section class="cta-section">
+  <div class="cta-container">
+    <h2 class="cta-title">
+      Solicita tu crédito de acabados <span class="cta-title-highlight">en menos de 1 minuto</span>
+    </h2>
+
+    <form [formGroup]="creditForm" (ngSubmit)="onSubmit()" class="cta-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="documentType" class="form-label">Tipo de documento</label>
+          <select 
+            id="documentType" 
+            formControlName="documentType" 
+            class="form-select"
+            [class.error]="isFieldInvalid('documentType')"
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="cc">Cédula de ciudadanía</option>
+            <option value="ce">Cédula de extranjería</option>
+            <option value="passport">Pasaporte</option>
+          </select>
+          @if (isFieldInvalid('documentType')) {
+            <div class="error-message">
+              {{ getFieldError('documentType') }}
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="documentNumber" class="form-label">Número de documento</label>
+          <input 
+            type="text" 
+            id="documentNumber" 
+            formControlName="documentNumber" 
+            class="form-input"
+            placeholder="Ej: 1000000"
+            [class.error]="isFieldInvalid('documentNumber')"
+          >
+          <div class="form-help">Ingresa solo números, sin puntos o comas.</div>
+          @if (isFieldInvalid('documentNumber')) {
+            <div class="error-message">
+              {{ getFieldError('documentNumber') }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName" class="form-label">Nombres</label>
+          <input 
+            type="text" 
+            id="firstName" 
+            formControlName="firstName" 
+            class="form-input"
+            placeholder="Ej. Maria Fernanda"
+            [class.error]="isFieldInvalid('firstName')"
+          >
+          @if (isFieldInvalid('firstName')) {
+            <div class="error-message">
+              {{ getFieldError('firstName') }}
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="lastName" class="form-label">Primer apellido</label>
+          <input 
+            type="text" 
+            id="lastName" 
+            formControlName="lastName" 
+            class="form-input"
+            placeholder="Ej. Jiménez"
+            [class.error]="isFieldInvalid('lastName')"
+          >
+          @if (isFieldInvalid('lastName')) {
+            <div class="error-message">
+              {{ getFieldError('lastName') }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="birthDate" class="form-label">Fecha de nacimiento</label>
+          <div class="date-input-container">
+            <input 
+              type="date" 
+              id="birthDate" 
+              formControlName="birthDate" 
+              class="form-input date-input"
+              [class.error]="isFieldInvalid('birthDate')"
+            >
+          </div>
+          @if (isFieldInvalid('birthDate')) {
+            <div class="error-message">
+              {{ getFieldError('birthDate') }}
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="city" class="form-label">Ciudad de vivienda</label>
+          <select 
+            id="city" 
+            formControlName="city" 
+            class="form-select"
+            [class.error]="isFieldInvalid('city')"
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="bogota">Bogotá y alrededores</option>
+            <option value="medellin">Medellín y alrededores</option>
+            <option value="armenia">Armenia y alrededores</option>
+            <option value="pereira">Pereira y alrededores</option>
+            <option value="barranquilla">Barranquilla y alrededores</option>
+            <option value="bucaramanga">Bucaramanga y alrededores</option>
+            <option value="cali">Cali y alrededores</option>
+            <option value="cartagena">Cartagena y alrededores</option>
+            <option value="santa-marta">Santa Marta y alrededores</option>
+            <option value="ibague">Ibagué y alrededores</option>
+            <option value="manizales">Manizales y alrededores</option>
+            <option value="otra">Otra</option>
+          </select>
+          <div class="form-help">Ciudad donde se encuentra el inmueble a remodelar.</div>
+          @if (isFieldInvalid('city')) {
+            <div class="error-message">
+              {{ getFieldError('city') }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone" class="form-label">Celular</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            formControlName="phone" 
+            class="form-input"
+            placeholder="Ej: 3112224455"
+            [class.error]="isFieldInvalid('phone')"
+          >
+          <div class="form-help">Ingresa el número de celular al que te podemos contactar.</div>
+          @if (isFieldInvalid('phone')) {
+            <div class="error-message">
+              {{ getFieldError('phone') }}
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            class="form-input"
+            placeholder="Ej: correo@dominio.com"
+            [class.error]="isFieldInvalid('email')"
+          >
+          <div class="form-help">Ingresa el correo que utilizas habitualmente.</div>
+          @if (isFieldInvalid('email')) {
+            <div class="error-message">
+              {{ getFieldError('email') }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="form-checkbox-group">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            formControlName="acceptTerms" 
+            class="checkbox-input"
+            [class.error]="isFieldInvalid('acceptTerms')"
+          >
+          <span class="checkbox-text">
+            Acepto los términos y condiciones de tratamiento de datos personales
+          </span>
+        </label>
+        @if (isFieldInvalid('acceptTerms')) {
+          <div class="error-message">
+            {{ getFieldError('acceptTerms') }}
+          </div>
+        }
+      </div>
+
+      <button 
+        type="submit" 
+        class="cta-submit-button"
+        [disabled]="creditForm.invalid || isSubmitting"
+      >
+        @if (!isSubmitting) {
+          <span>Obtén tu respuesta aquí</span>
+        }
+        @if (isSubmitting) {
+          <span>Procesando...</span>
+        }
+      </button>
+    </form>
+  </div>
+</section>

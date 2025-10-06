@@ -1,0 +1,17 @@
+<section class="partners-section">
+  <div class="partners-container">
+    <h2 class="partners-title">Nuestros aliados</h2>
+    <p class="partners-subtitle">
+      En Credifamilia trabajamos en alianza con empresas expertas en acabados,<br>
+      para que tu hogar se convierta en el lugar que siempre soñaste
+    </p>
+    
+    <div class="partners-grid">
+      @for (partner of partners; track partner.id) {
+        <div class="partner-card">
+          <img [src]="partner.logo" [alt]="partner.name" loading="lazy" decoding="async">
+        </div>
+      }
+    </div>
+  </div>
+</section>

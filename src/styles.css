@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* CSS Custom Properties - Design System Colors */
+:root {
+  /* Primary Brand Colors */
+  --color-primary: #4BA742;
+  --color-primary-green: #4BA742;
+  --color-primary-green-hover: #3d8935;
+  --color-primary-green-light: #5cb851;
+  --color-primary-green-dark: #096800;
+  
+  /* Secondary Brand Colors */
+  --color-secondary-yellow: #FFC600;
+  --color-secondary-yellow-hover: #e6b300;
+  --color-secondary-yellow-border: #E7B257;
+  --color-secondary-yellow-light: #ffcf33;
+  
+  /* Neutral Colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  /* Text Colors */
+  --color-text-primary: #1B1B1B;
+  --color-text-secondary: #1B1B1B;
+  --color-text-items: #096800;
+  
+  /* Semantic Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Gotham Black', 'Arial Black', sans-serif;
+  --font-gotham: 'Gotham', 'Arial', sans-serif;
+  
+  /* Spacing & Layout */
+  --container-max-width: 1200px;
+  --header-height: 80px;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Logo Responsive Sizes - Exact measurements */
+  --logo-height-mobile: 32px;      /* 320px - 480px */
+  --logo-height-mobile-lg: 36px;   /* 481px - 767px */
+  --logo-height-tablet: 40px;      /* 768px - 1023px */
+  --logo-height-desktop: 44px;     /* 1024px - 1439px */
+  --logo-height-desktop-lg: 48px;  /* 1440px+ */
+  
+  /* Header Heights per breakpoint */
+  --header-height-mobile: 64px;
+  --header-height-tablet: 72px;
+  --header-height-desktop: 80px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* Gotham Font - Add your Gotham font files to public/assets/fonts/ */
+@font-face {
+  font-family: 'Gotham Black';
+  src: url('/assets/fonts/Gotham-Black.woff2') format('woff2'),
+       url('/assets/fonts/Gotham-Black.woff') format('woff'),
+       url('/assets/fonts/Gotham-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/assets/fonts/Gotham-Bold.woff2') format('woff2'),
+       url('/assets/fonts/Gotham-Bold.woff') format('woff'),
+       url('/assets/fonts/Gotham-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base Styles - Landing Page Best Practices */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-gray-800);
+    background-color: var(--color-white);
+    margin: 0;
+    padding: 0;
+    padding-top: var(--header-height-mobile);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @media (min-width: 768px) {
+    body {
+      padding-top: var(--header-height-tablet);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    body {
+      padding-top: var(--header-height-desktop);
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    color: var(--color-gray-900);
+  }
+  
+  p {
+    margin: 0 0 1rem 0;
+  }
+  
+  a {
+    color: var(--color-primary-green);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  a:hover {
+    color: var(--color-primary-green-hover);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+}
+
+/* Utility Classes for Landing Page */
+@layer utilities {
+  .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-secondary-yellow);
+    color: var(--color-black);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    border: 2px solid var(--color-secondary-yellow-border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-secondary-yellow-hover);
+    border-color: var(--color-secondary-yellow-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-green);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    border: 2px solid var(--color-primary-green);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-primary-green);
+    color: var(--color-white);
+  }
+  
+  .section-padding {
+    padding: 4rem 0;
+  }
+  
+  .section-padding-lg {
+    padding: 6rem 0;
+  }
+}

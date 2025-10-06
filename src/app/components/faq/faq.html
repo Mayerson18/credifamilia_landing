@@ -1,0 +1,29 @@
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">
+      Todo lo que debes saber sobre nuestro <span class="faq-title-highlight">crédito de acabados</span>
+    </h2>
+    
+    <div class="faq-accordion">
+      @for (faq of faqs; track faq.id) {
+        <div class="faq-item" [class.active]="faq.isOpen">
+          <button class="faq-question" (click)="toggleFaq(faq.id)">
+            <span class="question-text">{{ faq.question }}</span>
+            <span class="faq-icon" [class.active]="faq.isOpen">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path class="horizontal-line" d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="vertical-line" d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+          
+          <div class="faq-answer-wrapper" [class.open]="faq.isOpen">
+            <div class="faq-answer">
+              <p>{{ faq.answer }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

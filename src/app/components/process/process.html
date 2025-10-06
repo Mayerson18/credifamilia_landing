@@ -1,0 +1,37 @@
+<section class="process-section">
+  <div class="process-container">
+    <h2 class="process-title">
+      De tu VIS en obra gris, a tu<br>
+      <span class="process-title-highlight">hogar listo</span> para vivir
+    </h2>
+
+    <div class="process-content">
+      <div class="process-content__left process-steps">
+        @for (step of processSteps; track step.id) {
+          <div class="process-step">
+            <div class="step-number">{{ step.number }}</div>
+            <div class="step-content">
+              <h3 class="step-title">{{ step.title }}</h3>
+              <p class="step-description">{{ step.description }}</p>
+            </div>
+          </div>
+        }
+
+        <div class="process-cta">
+          <p class="cta-text cta-highlight">¡Y disfruta tu hogar soñado!</p>
+          <p class="cta-text">Tu espacio remodelado y listo para disfrutar</p>
+        </div>
+      </div>
+
+      <div class="process-content__right process-image">
+        <img src="assets/web/asset1.png" alt="Proceso de acabados" loading="lazy" decoding="async">
+      </div>
+    </div>
+    
+    <div class="cta-button-container">
+      <button class="cta-button" (click)="onCtaClick()">
+        Solicítalo aquí
+      </button>
+    </div>
+  </div>
+</section>
