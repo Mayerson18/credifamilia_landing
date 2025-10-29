@@ -142,8 +142,8 @@
   }
   
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
   
   .services-title {
@@ -151,20 +151,34 @@
   }
   
   .service-card {
-    padding: 1.25rem;
+    padding: 1rem;
   }
   
   .service-icon {
-    height: 50px;
+    height: 45px;
+    margin-bottom: 1rem;
   }
   
   .service-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
   
   .cta-button {
-    padding: 0.875rem 2rem;
+    background-color: #FFA60C;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
     font-size: 1rem;
+    min-width: 256px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .cta-button:hover {
+    background-color: #e6950a;
   }
 }
 

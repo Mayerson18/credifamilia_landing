@@ -1,7 +1,7 @@
 <section class="cta-section">
   <div class="cta-container">
     <h2 class="cta-title">
-      Solicita tu crédito de acabados <span class="cta-title-highlight">en menos de 1 minuto</span>
+      Solicita tu crédito de acabados en <span class="cta-title-highlight">menos de 1 minuto</span>
     </h2>
 
     <form [formGroup]="creditForm" (ngSubmit)="onSubmit()" class="cta-form">
@@ -178,7 +178,7 @@
             [class.error]="isFieldInvalid('acceptTerms')"
           >
           <span class="checkbox-text">
-            Acepto los términos y condiciones de tratamiento de datos personales
+            Acepto los <a href="#" (click)="openTerms($event)">términos y condiciones</a> de tratamiento de datos personales
           </span>
         </label>
         @if (isFieldInvalid('acceptTerms')) {
@@ -201,5 +201,71 @@
         }
       </button>
     </form>
+
+    <!-- OTP Step -->
+    @if (showOtpStep && !isProcessing) {
+    <div class="otp-step">
+      <h3 class="otp-title">Verificación por SMS</h3>
+      <p class="otp-description">
+        Hemos enviado un código de verificación al número {{ creditForm.get('phone')?.value }}
+      </p>
+      
+      <div class="otp-input-group">
+        <label class="form-label">Código de Verificación</label>
+        <input 
+          type="text" 
+          [(ngModel)]="otpCode" 
+          class="form-input otp-input"
+          placeholder="000000"
+          maxlength="6"
+        >
+      </div>
+
+      <div class="otp-buttons">
+        <button 
+          (click)="resendOtp()"
+          [disabled]="isSubmitting"
+          class="cta-submit-button secondary"
+        >
+          Reenviar Código
+        </button>
+        
+        <button 
+          (click)="validateOtp()"
+          [disabled]="!otpCode || otpCode.length !== 6 || isSubmitting"
+          class="cta-submit-button"
+        >
+          {{ isSubmitting ? 'Verificando...' : 'Verificar' }}
+        </button>
+      </div>
+    </div>
+    }
+
+    <!-- Processing Modal -->
+    @if (isProcessing) {
+    <app-processing-modal 
+      [state]="currentProcessingState"
+      (close)="onProcessingClose()"
+    ></app-processing-modal>
+    }
+
+    <!-- Result Modal -->
+    @if (showResult) {
+    <app-result-modal 
+      [state]="resultState"
+      [approvedResult]="approvedResult"
+      [reviewResult]="reviewResult"
+      (close)="onResultClose()"
+      (talkToAdvisor)="onTalkToAdvisor()"
+      (retry)="onRetry()"
+    ></app-result-modal>
+    }
+
+    <!-- Terms Modal -->
+    @if (showTermsModal) {
+    <app-terms-modal 
+      (close)="onTermsClose()"
+    ></app-terms-modal>
+    }
   </div>
 </section>

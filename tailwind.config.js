@@ -47,9 +47,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-primary)'],
+        sans: ['var(--font-gotham)'],
         'gotham': ['var(--font-gotham)'],
-        'gotham-black': ['var(--font-heading)'],
+        'gotham-black': ['var(--font-gotham)'],
       },
       spacing: {
         'header': 'var(--header-height)',

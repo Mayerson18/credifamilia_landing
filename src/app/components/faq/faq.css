@@ -22,7 +22,7 @@
 }
 
 .faq-title-highlight {
-  color: #4BA742;
+  color: #2C8723;
 }
 
 /* FAQ Accordion */
@@ -65,7 +65,7 @@
 
 .faq-question:hover .question-text,
 .faq-item.active .question-text {
-  color: #4BA742;
+  color: #2C8723;
 }
 
 .question-text {
@@ -91,7 +91,7 @@
 
 .faq-question:hover .faq-icon,
 .faq-item.active .faq-icon {
-  color: #4BA742;
+  color: #2C8723;
 }
 
 .faq-icon svg {

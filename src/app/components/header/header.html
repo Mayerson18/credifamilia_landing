@@ -10,10 +10,8 @@
     </div>
     
     <div class="nav-links">
-      <a href="#inicio" class="nav-link">Inicio</a>
-      <a href="#servicios" class="nav-link">Servicios</a>
       <a href="#beneficios" class="nav-link">Beneficios</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="#contacto" class="nav-link">Preguntas Frecuentes</a>
     </div>
 
     <button class="cta-button">
@@ -30,11 +28,30 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" [class.hidden]="!isMobileMenuOpen">
-    <div class="mobile-menu-links">
-      <a href="#inicio" class="nav-link">Inicio</a>
-      <a href="#servicios" class="nav-link">Servicios</a>
-      <a href="#beneficios" class="nav-link">Beneficios</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
+    <div class="mobile-menu-content">
+      <!-- Close button - fixed position -->
+      <button class="mobile-menu-close" (click)="toggleMobileMenu()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      
+      <!-- Mobile logo - positioned independently -->
+      <div class="mobile-logo-container">
+        <img 
+          src="assets/logo.png" 
+          alt="CrediFamilia Logo" 
+          loading="eager"
+          decoding="async"
+        >
+      </div>
+      
+      <!-- Navigation links -->
+      <div class="mobile-menu-links">
+        <a href="#beneficios" class="mobile-nav-link">Beneficios</a>
+        <a href="#solicitar" class="mobile-nav-link">Solicitar crédito</a>
+        <a href="#contacto" class="mobile-nav-link">Preguntas frecuentes</a>
+      </div>
     </div>
   </div>
 </header>
