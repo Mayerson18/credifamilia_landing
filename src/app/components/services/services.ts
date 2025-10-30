@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CtaButtonComponent } from '../cta-button/cta-button';
 
 interface Service {
   id: number;
@@ -9,7 +10,7 @@ interface Service {
 
 @Component({
   selector: 'app-services',
-  imports: [],
+  imports: [CtaButtonComponent],
   templateUrl: './services.html',
   styleUrl: './services.css'
 })
@@ -52,8 +53,4 @@ export class ServicesComponent {
       image: 'assets/web/item6.png'
     }
   ];
-
-  onCtaClick() {
-    console.log('CTA clicked: Solicitar crédito de acabados');
-  }
 }

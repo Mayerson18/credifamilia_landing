@@ -15,6 +15,13 @@
             loading="eager"
             decoding="async"
           >
+          <div class="slide-content">
+            <h1 class="slide-title">{{ slide.title }}</h1>
+            <p class="slide-subtitle">{{ slide.subtitle }}</p>
+            <button class="slide-button" (click)="scrollToForm()">
+              {{ slide.buttonText }}
+            </button>
+          </div>
         </div>
       }
     </div>

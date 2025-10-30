@@ -9,6 +9,7 @@
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 1rem;
+  background-color: #F5F5F5;
 }
 
 .partners-title {

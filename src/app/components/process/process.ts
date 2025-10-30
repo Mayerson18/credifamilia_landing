@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CtaButtonComponent } from '../cta-button/cta-button';
 
 interface ProcessStep {
   id: number;
@@ -9,7 +10,7 @@ interface ProcessStep {
 
 @Component({
   selector: 'app-process',
-  imports: [],
+  imports: [CtaButtonComponent],
   templateUrl: './process.html',
   styleUrl: './process.css'
 })
@@ -34,8 +35,4 @@ export class ProcessComponent {
       description: 'Firma el acuerdo y Credifamilia le desembolsa directamente al aliado'
     }
   ];
-
-  onCtaClick() {
-    console.log('CTA clicked: Solicitar proceso de acabados');
-  }
 }

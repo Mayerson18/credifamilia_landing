@@ -14,7 +14,7 @@
       <a href="#contacto" class="nav-link">Preguntas Frecuentes</a>
     </div>
 
-    <button class="cta-button">
+    <button class="cta-button" (click)="scrollToForm()">
       Solicitar Crédito
     </button>
 
@@ -48,9 +48,12 @@
       
       <!-- Navigation links -->
       <div class="mobile-menu-links">
-        <a href="#beneficios" class="mobile-nav-link">Beneficios</a>
-        <a href="#solicitar" class="mobile-nav-link">Solicitar crédito</a>
-        <a href="#contacto" class="mobile-nav-link">Preguntas frecuentes</a>
+        <a href="#beneficios" class="mobile-nav-link" (click)="toggleMobileMenu()">Beneficios</a>
+        <a href="#contacto" class="mobile-nav-link" (click)="toggleMobileMenu()">Preguntas frecuentes</a>
+      </div>
+      
+      <div class="mobile-menu-cta">
+        <app-cta-button [isMobile]="true" (buttonClick)="toggleMobileMenu()"></app-cta-button>
       </div>
     </div>
   </div>

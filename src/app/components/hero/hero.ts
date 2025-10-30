@@ -5,6 +5,9 @@ interface CarouselSlide {
   id: number;
   image: string;
   imageAlt: string;
+  title: string;
+  subtitle: string;
+  buttonText: string;
 }
 
 @Component({
@@ -22,17 +25,26 @@ export class HeroComponent implements OnInit, OnDestroy {
     {
       id: 1,
       image: 'assets/web/banner1.png',
-      imageAlt: 'Crédito para remodelación de vivienda VIS - Sin hipoteca'
+      imageAlt: 'Crédito para remodelación de vivienda VIS - Sin hipoteca',
+      title: 'Crédito para remodelación de vivienda VIS',
+      subtitle: 'Sin hipoteca',
+      buttonText: 'Solicítalo aquí'
     },
     {
       id: 2,
       image: 'assets/web/banner2.png',
-      imageAlt: 'Estrena tu hogar terminado desde ya - No necesitas tener crédito hipotecario'
+      imageAlt: 'Estrena tu hogar terminado desde ya - No necesitas tener crédito hipotecario',
+      title: 'Estrena tu hogar terminado desde ya',
+      subtitle: 'No necesitas tener crédito hipotecario con Credifamilia',
+      buttonText: 'Solicítalo aquí'
     },
     {
       id: 3,
       image: 'assets/web/banner3.png',
-      imageAlt: 'Aprobación en línea y 100% digital - Obtén respuesta inmediata'
+      imageAlt: 'Aprobación en línea y 100% digital - Obtén respuesta inmediata',
+      title: 'Aprobación en línea y 100% digital',
+      subtitle: 'Obtén respuesta inmediata de tu crédito de acabados',
+      buttonText: 'Solicítalo aquí'
     }
   ];
 
@@ -77,5 +89,12 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   get currentSlideData() {
     return this.slides[this.currentSlide];
+  }
+
+  scrollToForm() {
+    const ctaSection = document.querySelector('app-cta');
+    if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

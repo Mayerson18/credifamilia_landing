@@ -1,0 +1,84 @@
+.cta-button {
+  background-color: #FFC600;
+  color: #000000;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  background-color: #e6b300;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+.cta-button.mobile {
+  background-color: #FFA60C;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 256px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cta-button.mobile:hover {
+  background-color: #e6950a;
+}
+
+@media (max-width: 767px) {
+  .cta-button {
+    background-color: #FFA60C;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 256px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .cta-button:hover {
+    background-color: #e6950a;
+  }
+}
+
+@media (min-width: 768px) {
+  .cta-button.mobile {
+    background-color: #FFC600;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    min-width: auto;
+    height: auto;
+  }
+
+  .cta-button.mobile:hover {
+    background-color: #e6b300;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button {
+    transition: none;
+  }
+
+  .cta-button:hover {
+    transform: none;
+  }
+}
+
