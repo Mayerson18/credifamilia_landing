@@ -1,7 +1,18 @@
 <section id="servicios" class="services-section">
+
+  <!-- Dots visibles "fuera" del Hero, al inicio de Services -->
+  <div class="services-pagination">
+    <app-pagination-dots
+      [count]="slidesLength"
+      [active]="currentSlide"
+      (select)="onDotSelect($event)"
+      ariaLabel="Ir al slide">
+    </app-pagination-dots>
+  </div>
+
   <div class="services-container">
     <h2 class="services-title">
-      Crédito de <span class="services-title-highlight">Acabados</span> de Credifamilia
+      Crédito de <span class="services-title-highlight">Acabados</span> de <br> Credifamilia
     </h2>
 
     <div class="services-grid">

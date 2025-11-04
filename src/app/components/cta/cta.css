@@ -1,7 +1,7 @@
 /* CTA Section */
 .cta-section {
   background-color: #FFFFFF;
-  padding: 4rem 0;
+  padding: 2rem 0;
   position: relative;
 }
 
@@ -224,6 +224,13 @@
   transition: all var(--transition-normal);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
+  min-width: 180px;
+  max-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 48px;
 }
 
 .cta-submit-button:hover:not(:disabled) {
@@ -242,6 +249,13 @@
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+  min-width: 180px;
+  max-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 48px;
 }
 
 /* OTP Step Styles */
@@ -286,6 +300,8 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  min-width: 180px;
+  max-width: 320px;
 }
 
 .cta-submit-button.secondary {

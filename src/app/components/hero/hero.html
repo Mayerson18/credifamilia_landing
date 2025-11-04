@@ -25,17 +25,5 @@
         </div>
       }
     </div>
-
-    <!-- Pagination Dots -->
-    <div class="carousel-pagination">
-      @for (slide of slides; track slide.id; let i = $index) {
-        <button 
-          class="pagination-dot" 
-          [class.active]="i === currentSlide"
-          (click)="goToSlide(i)"
-          [attr.aria-label]="'Ir al slide ' + (i + 1)"
-        ></button>
-      }
-    </div>
   </div>
 </section>

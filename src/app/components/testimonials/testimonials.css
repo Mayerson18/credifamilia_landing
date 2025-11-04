@@ -104,6 +104,7 @@
 }
 
 .video-overlay {
+  border-radius: 1rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -128,17 +129,24 @@
 .client-tag {
   background-color: #FFC600;
   color: #000000;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  font-size: 0.9rem;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 13px;
   font-weight: 600;
   align-self: flex-start;
+  height: 22px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 10px;
 }
 
 /* Card Info */
 .card-info {
   background-color: #FFFFFF;
-  padding: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
