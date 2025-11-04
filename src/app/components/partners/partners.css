@@ -1,14 +1,12 @@
 /* Partners Section */
 .partners-section {
   background-color: #FFFFFF;
-  padding: 4rem 0;
   position: relative;
 }
 
 .partners-container {
-  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 6rem;
   background-color: #F5F5F5;
 }
 
@@ -20,22 +18,24 @@
   margin: 0 0 1rem 0;
   line-height: 1.2;
   text-align: center;
+  padding-top: 1rem;
 }
 
 .partners-subtitle {
-  font-size: 1.1rem;
+  font-size: 18px;
   color: #666666;
   text-align: center;
   margin: 0 0 3rem 0;
-  line-height: 1.5;
+  font-weight: 400;
+  font-family: DM Sans, sans-serif;
 }
 
 /* Partners Grid */
 .partners-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
-  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -62,7 +62,6 @@
   height: auto;
   max-width: 120px;
   object-fit: contain;
-  filter: grayscale(100%);
   transition: filter 0.3s ease;
 }
 

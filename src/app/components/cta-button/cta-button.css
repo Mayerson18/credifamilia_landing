@@ -1,4 +1,8 @@
 .cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background-color: #FFC600;
   color: #000000;
   padding: 1rem 2.5rem;
@@ -9,6 +13,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  min-width: 256px;
+  margin: 0 auto;
+  height: 48px;
+  margin-top: -1rem;
 }
 
 .cta-button:hover {

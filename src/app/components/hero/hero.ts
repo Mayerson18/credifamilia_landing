@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarouselStateService } from '../../services/carousel-state.service';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 
 interface CarouselSlide {
   id: number;
@@ -12,74 +14,88 @@ interface CarouselSlide {
 
 @Component({
   selector: 'app-hero',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './hero.html',
-  styleUrl: './hero.css'
+  styleUrl: './hero.css',
 })
 export class HeroComponent implements OnInit, OnDestroy {
   currentSlide = 0;
   autoSlideInterval: any;
-  autoSlideDelay = 5000; // 5 seconds
+  autoSlideDelay = 5000;
+  private sub?: Subscription;
 
   slides: CarouselSlide[] = [
     {
       id: 1,
       image: 'assets/web/banner1.png',
-      imageAlt: 'Crédito para remodelación de vivienda VIS - Sin hipoteca',
+      imageAlt: '...',
       title: 'Crédito para remodelación de vivienda VIS',
       subtitle: 'Sin hipoteca',
-      buttonText: 'Solicítalo aquí'
+      buttonText: 'Solicítalo aquí',
     },
     {
       id: 2,
       image: 'assets/web/banner2.png',
-      imageAlt: 'Estrena tu hogar terminado desde ya - No necesitas tener crédito hipotecario',
+      imageAlt: '...',
       title: 'Estrena tu hogar terminado desde ya',
       subtitle: 'No necesitas tener crédito hipotecario con Credifamilia',
-      buttonText: 'Solicítalo aquí'
+      buttonText: 'Solicítalo aquí',
     },
     {
       id: 3,
       image: 'assets/web/banner3.png',
-      imageAlt: 'Aprobación en línea y 100% digital - Obtén respuesta inmediata',
+      imageAlt: '...',
       title: 'Aprobación en línea y 100% digital',
       subtitle: 'Obtén respuesta inmediata de tu crédito de acabados',
-      buttonText: 'Solicítalo aquí'
-    }
+      buttonText: 'Solicítalo aquí',
+    },
   ];
 
+  constructor(private carouselState: CarouselStateService) {}
+  
+  private destroy$ = new Subject<void>();
   ngOnInit() {
+    this.carouselState.setSlidesLength(this.slides.length);
+
+    this.carouselState.currentSlide$.pipe(takeUntil(this.destroy$)).subscribe((idx: number) => {
+      if (idx !== this.currentSlide) {
+        this.currentSlide = idx;
+        this.resetAutoSlide();
+      }
+    });
+
     this.startAutoSlide();
   }
 
   ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
     this.stopAutoSlide();
   }
 
   startAutoSlide() {
-    this.autoSlideInterval = setInterval(() => {
-      this.nextSlide();
-    }, this.autoSlideDelay);
+    this.autoSlideInterval = setInterval(() => this.nextSlide(), this.autoSlideDelay);
   }
 
   stopAutoSlide() {
-    if (this.autoSlideInterval) {
-      clearInterval(this.autoSlideInterval);
-    }
+    if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
   }
 
   goToSlide(index: number) {
     this.currentSlide = index;
+    this.carouselState.setCurrentSlide(index); // sincroniza al servicio
     this.resetAutoSlide();
   }
 
   nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    const next = (this.currentSlide + 1) % this.slides.length;
+    this.goToSlide(next); // reutiliza para sincronizar
   }
 
   prevSlide() {
-    this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
-    this.resetAutoSlide();
+    const prev = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+    this.goToSlide(prev);
   }
 
   resetAutoSlide() {
@@ -93,8 +109,6 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   scrollToForm() {
     const ctaSection = document.querySelector('app-cta');
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (ctaSection) ctaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

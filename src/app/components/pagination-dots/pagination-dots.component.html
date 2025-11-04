@@ -1,0 +1,11 @@
+<div class="carousel-pagination">
+  @for (idx of items; track idx) {
+    <button
+      type="button"
+      class="pagination-dot"
+      [class.active]="idx === active"
+      (click)="onSelect(idx)"
+      [attr.aria-label]="ariaLabel + ' ' + (idx + 1)">
+    </button>
+  }
+</div>

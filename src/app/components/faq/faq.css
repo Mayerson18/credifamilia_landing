@@ -6,7 +6,7 @@
 }
 
 .faq-container {
-  max-width: var(--container-max-width);
+  width: 90rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -27,7 +27,6 @@
 
 /* FAQ Accordion */
 .faq-accordion {
-  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -174,6 +173,7 @@
   }
   
   .faq-container {
+    width: auto;
     padding: 0 0.75rem;
   }
   
