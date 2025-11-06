@@ -6,9 +6,10 @@
 }
 
 .faq-container {
-  width: 90rem;
+  max-width: 1160px;
+  width: min(1160px, 92vw);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 clamp(1rem, 2vw, 1.5rem);
 }
 
 .faq-title {
